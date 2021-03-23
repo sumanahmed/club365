@@ -1,4 +1,4 @@
-# club365
+# bet365
 
 ## Project setup
 ```
