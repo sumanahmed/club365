@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <div v-if="loader" id="preloader"></div>
+      <div class="full-body">
+        <div class="main-content">
+          <left-sidebar></left-sidebar>  
+          <div class="middle-section scrollCustom" id="style-10"> 
+              <router-view></router-view>
+          </div> 
+          <right-sidebar></right-sidebar> 
+        </div>    
+        <footer-nav></footer-nav>
+        <a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    </div>    
+    <a href="#" id="back-to-top-mobile"><i class="fa fa-angle-up"></i></a>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LeftSidebar from './components/includes/LeftSidebar'
+import RightSidebar from './components/includes/RightSidebar'
+import Footer from './components/includes/Footer'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'left-sidebar': LeftSidebar,
+    'right-sidebar': RightSidebar,
+    'footer-nav': Footer,
+  },  
+  computed : {
+    loader : function () {
+      return this.$store.state.loader
+    },
+    loginLoader : function () {
+      return this.$store.state.loginLoader
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
