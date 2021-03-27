@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="club-login-wraper fadeInUp">
+        <div class="club-login-wraper">
             <h3 class="text-center">CLUB LOGIN</h3>
             <form class="cmn-form login-form" action="" method="POST">
                 <input type="hidden" name="_token" value="">
@@ -13,6 +13,7 @@
                         </div>
                         <input v-model="form.username" autofocus="" type="text" class="form-control" name="username" placeholder="Username" value="">
                     </div>
+                    <span class="text-danger" v-if="errors.username">{{ errors.username[0] }}</span>
                 </div>
                 <div class="form-group">
                     <div class="input-group input-group-icon">
@@ -22,8 +23,8 @@
                             </div>
                         </div>
                         <input v-model="form.password" type="password" class="form-control" name="password" placeholder="Password" value="">
-                        <span class="text-danger" v-if="errors.password">{{ errors.password[0] }}</span>  
                     </div>
+                    <span class="text-danger" v-if="errors.password">{{ errors.password[0] }}</span>
                 </div>
                 <div class="form-group">
                     <button @click.prevent="signIn" style="margin-left:90px" class="btn btn-sm btn-secondary text-center submit-btn" type="submit">CLUB SIGN IN</button>
@@ -62,9 +63,17 @@ export default {
                         message: 'Loggedin Successfully',
                         type: 'success'
                     })
+                } else {
+                    this.$store.state.loader = false
+                    this.$toast.error({
+                        title: 'Error',
+                        message: response.message,
+                        type: 'warning'
+                    })
                 }     
             })
             .catch((error) => {
+                this.$store.state.loader = false
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
                 }

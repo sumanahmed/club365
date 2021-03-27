@@ -17,7 +17,7 @@
                         <td>{{ income.clubGet }}</td>
                         <td>{{ income.username }}</td>
                         <td>
-                            {{ income.created_at | dateformat }} at {{ income.created_at | timeformat }}                                                                 
+                            {{ income.vueDateTime | dateformat }} at {{ income.vueDateTime | timeformat }}                                                                 
                         </td>
                     </tr>
                 </tbody>
