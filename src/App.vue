@@ -5,6 +5,7 @@
         <div class="main-content">
           <left-sidebar></left-sidebar>  
           <div class="middle-section scrollCustom" id="style-10"> 
+              <mobile-nav></mobile-nav>
               <router-view></router-view>
           </div> 
           <right-sidebar></right-sidebar> 
@@ -18,12 +19,14 @@
 
 <script>
 import LeftSidebar from './components/includes/LeftSidebar'
+import MobileNav from './components/includes/MobileNav'
 import RightSidebar from './components/includes/RightSidebar'
 import Footer from './components/includes/Footer'
 
 export default {
   name: 'App',
   components: {
+    'mobile-nav': MobileNav,
     'left-sidebar': LeftSidebar,
     'right-sidebar': RightSidebar,
     'footer-nav': Footer,

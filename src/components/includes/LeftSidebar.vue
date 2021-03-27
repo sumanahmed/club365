@@ -7,7 +7,7 @@
             </div>
 
             <!-- Profile section -->
-            <div class="profile_section">
+            <div v-if="getUser" class="profile_section">
                 <div class="single-profile">
                     <div class="avater-image">
                         <p>{{ getUser.club_name.substring(0,1) | capitalizeFirstLetter }}</p>

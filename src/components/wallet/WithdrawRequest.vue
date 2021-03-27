@@ -40,6 +40,9 @@ export default {
             }
         }
     }, 
+    async created () {
+        this.$store.dispatch('toggleMobileMenu', 1)
+    },
     computed : {
         getUser : function () {
             return this.$store.state.club

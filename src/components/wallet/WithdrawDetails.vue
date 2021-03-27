@@ -97,16 +97,13 @@ export default {
             .then((response) => {
                 this.$store.state.loader = false
                 this.withdraws = response.data
-            })
-            .catch((error) => {
-                console.log('error = ', error)
             });
         },
         getResults(page = 1) {
             this.$store.state.loader = true
             config.getData('club/withdraw/history/'+ this.getUser.club_id +'?page=' + page)
             .then(response => {
-                if(!response.data) {
+                if(!response) {
                     this.$store.state.loader = true
                 } else {
                     this.$store.state.loader = false
@@ -121,7 +118,6 @@ export default {
             this.refundAmount = amount
         },
         submitRefund() {
-            console.log('this.id = ', this.id)
             config.getData('/club/withdraw/cancel/'+ this.id)
             .then((response) => {            
                 if(response.status_code){  
