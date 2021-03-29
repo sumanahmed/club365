@@ -63,22 +63,13 @@ export default {
                         message: 'Loggedin Successfully',
                         type: 'success'
                     })
-<<<<<<< HEAD
                 } else if(response.status_code == 500){    
-=======
-                } else {
-                    this.$store.state.loader = false
->>>>>>> aec5ce5ccc11703667bef9bfe3db054de9751c48
                     this.$toast.error({
                         title: 'Error',
                         message: response.message,
                         type: 'warning'
                     })
-<<<<<<< HEAD
                 }
-=======
-                }     
->>>>>>> aec5ce5ccc11703667bef9bfe3db054de9751c48
             })
             .catch((error) => {
                 this.$store.state.loader = false
