@@ -18,7 +18,7 @@
                     <tr v-for="(withdraw, index) in withdraws.data" :key="index">
                         <td>{{ withdraw.username }}</td>
                         <td>{{ withdraw.withdrawAmount }}</td>
-                        <td>{{ withdraw.created_at | dateformat }} at {{ withdraw.created_at | timeformat }}</td>
+                        <td>{{ withdraw.vueDateTime | dateformat }} at {{ withdraw.vueDateTime | timeformat }}</td>
                         <td>
                             <span v-if="withdraw.status == 0" class="badge badge-warning mr-1">Pending</span>                       
                             <span v-if="withdraw.status == 0" @click="showModal(withdraw.id, index, withdraw.withdrawAmount)" class="badge badge-danger" style="cursor: pointer;">Refund</span>
