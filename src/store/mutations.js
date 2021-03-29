@@ -6,7 +6,6 @@ export default {
         state.club.totalAmount = parseFloat(state.club.totalAmount - amount).toFixed(2)
     },
     addAmount (state, amount) {
-        console.log('add amount = ', amount)
         state.club.totalAmount = parseFloat(state.club.totalAmount + amount).toFixed(2)
     },
     userLogout (state, loggedInfalse) {

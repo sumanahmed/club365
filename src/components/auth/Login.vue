@@ -13,6 +13,7 @@
                         </div>
                         <input v-model="form.username" autofocus="" type="text" class="form-control" name="username" placeholder="Username" value="">
                     </div>
+                    <span class="text-danger" v-if="errors.username">{{ errors.username[0] }}</span>  
                 </div>
                 <div class="form-group">
                     <div class="input-group input-group-icon">
@@ -22,8 +23,8 @@
                             </div>
                         </div>
                         <input v-model="form.password" type="password" class="form-control" name="password" placeholder="Password" value="">
-                        <span class="text-danger" v-if="errors.password">{{ errors.password[0] }}</span>  
                     </div>
+                    <span class="text-danger" v-if="errors.password">{{ errors.password[0] }}</span>  
                 </div>
                 <div class="form-group">
                     <button @click.prevent="signIn" style="margin-left:90px" class="btn btn-sm btn-secondary text-center submit-btn" type="submit">CLUB SIGN IN</button>
@@ -50,10 +51,10 @@ export default {
             this.$store.state.loader = true
             config.postData('/club/login', this.form)
             .then((response) => {
+                this.$store.state.loader = false
                 if(response.status_code == 200){
                     localStorage.setItem('accessToken', response.access_token);
                     localStorage.setItem('accountType', response.user_type);
-                    this.$store.state.loader = false
                     this.$store.dispatch('addClub',  response.club)
                     this.$router.replace('/')
                    // this.$router.go()
@@ -62,9 +63,16 @@ export default {
                         message: 'Loggedin Successfully',
                         type: 'success'
                     })
-                }     
+                } else if(response.status_code == 500){    
+                    this.$toast.error({
+                        title: 'Error',
+                        message: response.message,
+                        type: 'warning'
+                    })
+                }
             })
             .catch((error) => {
+                this.$store.state.loader = false
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
                 }

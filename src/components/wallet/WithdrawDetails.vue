@@ -128,7 +128,7 @@ export default {
                         message: response.message,
                         type: 'success'
                     })
-                    this.refundModal = false
+                    this.$router.go()
                 } else {
                     this.$toast.error({
                         title: 'Error',

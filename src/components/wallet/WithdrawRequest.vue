@@ -77,7 +77,6 @@ export default {
                 }   
             })
             .catch((error) => {
-                console.log('err => ', error)
                 if (error.response.status === 422) {
                     this.errors = error.response.data.errors;
                     this.$store.state.loader = false 

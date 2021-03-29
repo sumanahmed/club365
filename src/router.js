@@ -18,6 +18,12 @@ const routes = [
         meta: { requiresAuth:true}
     },
     {
+        path:'/join',
+        name:'join',
+        component:() => import('./components/auth/Join'),
+        meta: { requiresAuth:true}
+    },
+    {
         path:'/club-members',
         name:'club-members',
         component:() => import('./components/profile/ClubMembers'),

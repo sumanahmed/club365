@@ -26,7 +26,6 @@ export default {
     },
     created () {
         this.getUpcomingMatches()
-        console.log('from upcoming')
     },
     methods : {
         async getUpcomingMatches () {
@@ -35,7 +34,7 @@ export default {
                 if (response.status_code == 200) {
                     this.upcomingMatches = response.upcomingMatches
                 } else {
-                    console.log('err')
+                    this.upcomingMatches = []
                 }
             })
             .catch((error) => {

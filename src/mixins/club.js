@@ -1,19 +1,14 @@
 import config from '../config'
 export default {
     created () {      
-        const isUserLoggedIn = this.$store.state.loggedIn        
-        if (isUserLoggedIn !== undefined) {
-          const userId = this.$store.state.userId
-            config.getData('/user/detail/' + userId)
+        const isUserLoggedIn = this.$store.state.loggedIn  
+        if (isUserLoggedIn) {
+          const clubId = this.$store.state.club.club_id
+            config.getData('/club/detail/' + clubId)
             .then(response => {
                 console.log('response of user = ', response)
-                if (response.status_code === 200) {
-                  this.$store.commit('mutateCommonProperties', {
-                    user: response.user,
-                    profile: response.profile,
-                    country: response.country,
-                    club: response.clubs
-                  })
+                if (response.status_code) {
+                  this.$store.commit('addClub', response.data)
                 }
             })
         }
