@@ -24,7 +24,7 @@
                 <nav class="navigation">
                     <ul class="mainmenu">
                         <li><router-link to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</router-link></li>
-                        <li><router-link to="/join"><i class="fa fa-home" aria-hidden="true"></i> Join</router-link></li>
+                        <li><router-link to="/join"><i class="fa fa-user" aria-hidden="true"></i> Join</router-link></li>
                         <li><a style="color: #fff;"><i class="fa fa-user" aria-hidden="true"></i> Profile <i style="float: right;" class="fa fa-angle-down fa-sm " aria-hidden="true"></i></a>
                             <ul class="submenu">
                                 <li><router-link to="/club-members">Club Members</router-link></li>

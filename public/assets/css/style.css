@@ -692,13 +692,13 @@ span.time {color: darksalmon;}
 /*================= Mobile Header Style End ================*/
 
 /* ================ Bradecumbe Style Start =================*/
-.page-title-custom {
+.page-title-custom, .page-title-customForClubProfile {
     background: #00885c;
     color: #fff;
     padding: 10px;
 }
 
-.page-title-custom p {
+.page-title-custom p, .page-title-customForClubProfile p {
     margin-bottom: 0;
 }
 .page-title-upcoming {

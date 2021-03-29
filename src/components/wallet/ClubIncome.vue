@@ -1,15 +1,15 @@
 <template>
     <div>
         <div class="page-title-custom">
-            <p> <b> Home </b> <i class="fa fa-angle-right"></i> <span class="text-warning"> deposit details </span></p>
+            <p> <b> Home </b> <i class="fa fa-angle-right"></i> <span class="text-warning"> Club Income </span></p>
         </div>
         <div class="profile-wrapper">
-            <table id="example" class="text-center table table-sm table-responsive-lg table-responsive-md table-responsive-sm table-striped table-bordered" style="width:100%">
+            <table id="" class="text-center table table-sm table-responsive-lg table-responsive-md table-responsive-sm table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>Clug Get</th>
-                        <th>Username</th>
-                        <th>Date</th>
+                        <th width="20%">Clug Get</th>
+                        <th width="20%">Username</th>
+                        <th width="60%">Date</th>
                     </tr>
                 </thead>
                 <tbody>

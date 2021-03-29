@@ -1,7 +1,7 @@
 <template>
     <div>
         <slider></slider>
-        <div class="page-title-custom">
+        <div class="page-title-customForClubProfile">
             <p> <b> Home </b> <i class="fa fa-angle-right"></i> <span class="text-warning"> profile </span></p>
         </div>
 

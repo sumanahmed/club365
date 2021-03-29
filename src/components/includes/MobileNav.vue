@@ -4,21 +4,21 @@
 
             <div class="mobile-header">
                 <router-link to="/"><img :src="'./assets/img/logo.jpg'" alt="mobile logo"></router-link>
-                <span v-if="mobileNav.icon" @click="mobileNavToggle(0)" id="three-dot" class="fa fa-bars"></span>
-                <span v-if="!mobileNav.icon" @click="mobileNavToggle(1)" id="three-dot" class="fa fa-times"></span>
+                <span v-if="mobileNav.icon && getUser" @click="mobileNavToggle(0)" id="three-dot" class="fa fa-bars"></span>
+                <span v-if="!mobileNav.icon && getUser" @click="mobileNavToggle(1)" id="three-dot" class="fa fa-times"></span>
             </div>
 
             <!-- Mobile Profile section -->
             <div v-if="getUser" class="profile_section_mobile">
                 <div class="single-profile-mobile">
                     <div class="avater-image-mobile">
-                        <p>{{ getUser.user_name.substring(0,1) | capitalizeFirstLetter }}</p>
+                        <p>{{ getUser.club_name.substring(0,1) | capitalizeFirstLetter }}</p>
                     </div>
                     <div class="welcome-text-coin-mobile">
                         <p class="text-block m-0"><b>Welcome</b> : {{ getUser.user_name }} </p>
                         <i class="fa fa-bitcoin"></i> <b class="text-black">{{ getTotalAmount }}</b>
                     </div>
-                </div>                    
+                </div>
             </div>
 
         </div>
@@ -28,6 +28,7 @@
                 <nav class="navigation">
                     <ul class="mainmenu">
                         <li><router-link to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</router-link></li>
+                        <li><router-link to="/join"><i class="fa fa-handshake-o" aria-hidden="true"></i> Join</router-link></li>
                         <li v-if="isLoggedUser"><a style="color: #fff;"><i class="fa fa-user" aria-hidden="true"></i> Profile <i style="float: right;" class="fa fa-angle-down fa-sm " aria-hidden="true"></i></a>
                             <ul class="submenu">
                                 <li><router-link to="/club-members">Club Members</router-link></li>
@@ -66,10 +67,10 @@ export default {
             return this.$store.state.loggedIn
         },
         getUser : function () {
-            return this.$store.state.commonObj.user
+            return this.$store.state.club
         },
         getTotalAmount : function () {
-            return this.$store.state.commonObj.user.totalAmount
+            return this.$store.state.club.totalAmount
         },
         mobileNav : function () {
             return this.$store.state.mobileNav
@@ -116,7 +117,7 @@ export default {
                 localStorage.removeItem('accessToken');
                 this.$store.dispatch('toggleMobileMenu', 1)
                 this.$store.dispatch('userLogout', false)
-                this.$router.replace('/')
+                this.$router.replace('/login')
                 this.$toast.success({
                     title: 'Success',
                     message: 'Logout Successfully',

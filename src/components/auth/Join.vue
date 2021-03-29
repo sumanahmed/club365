@@ -102,6 +102,7 @@ export default {
         }
     },
     created () {
+        this.$store.dispatch('toggleMobileMenu', 1)
         this.getCountryList()
     },
     methods: {
