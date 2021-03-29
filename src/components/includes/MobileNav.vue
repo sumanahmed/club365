@@ -15,7 +15,7 @@
                         <p>{{ getUser.club_name.substring(0,1) | capitalizeFirstLetter }}</p>
                     </div>
                     <div class="welcome-text-coin-mobile">
-                        <p class="text-block m-0"><b>Welcome</b> : {{ getUser.user_name }} </p>
+                        <p class="text-block m-0"><b>Welcome</b> : {{ getUser.club_name }} </p>
                         <i class="fa fa-bitcoin"></i> <b class="text-black">{{ getTotalAmount }}</b>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
 
         </div>
         <!-- Mobile Menu -->
-        <div class="mobile-menu-wrapper" v-if="mobileNav.menu">                    
+        <div class="mobile-menu-wrapper" v-if="mobileNav.menu">
             <div class="menu_section">
                 <nav class="navigation">
                     <ul class="mainmenu">
